@@ -18,23 +18,23 @@ struct QuestionsView: View
             NavigationStack
             {
                     List
+                {
+                    ForEach(filtered, id:\.self)
                     {
-                        ForEach(filtered, id:\.self)
-                        {
-                            film in ZStack{
-                                NavigationLink (destination: EmptyView())
-                                {
-                                    EmptyView()
-                                }.opacity(0)
-                                VStack
-                                {
-                                    Text(film)
-                                    Image("stanford").resizable().scaledToFit()
-                                }
+                        film in ZStack{
+                            NavigationLink (destination: EmptyView())
+                            {
+                                EmptyView()
+                            }.opacity(0)
+                            VStack
+                            {
+                                Text(film)
+                                Image("stanford").resizable().scaledToFit()
                             }
                         }
-                    }.background(Image("Q_ABackground"))
-                    .scrollContentBackground(.automatic)
+                    }
+                }.background(Image("Q_ABackground"))
+                    .scrollContentBackground(.hidden)
             }.searchable(text: $searchText)
     }
 
