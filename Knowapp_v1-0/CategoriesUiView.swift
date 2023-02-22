@@ -17,27 +17,25 @@ struct CategoriesSwiftUIView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                ZStack{
-                    Image("libri")
-                        .resizable()
-                        .scaledToFit()
-                    Spacer()
-                    HStack{
-                        Text("Welcome")
-                            .foregroundColor(Color(red:0.729,green: 0.0,blue: 0.0))
-                            .fontWeight(.bold)
-                            .font(.custom("AmericanTypewriter", size: 34))
-                            .padding(.leading)
+                ScrollView{
+                    ZStack{
+                        Image("libri")
+                            .resizable()
+                            .scaledToFit()
                         Spacer()
-                        
+                        HStack{
+                            Text("Welcome")
+                                .foregroundColor(Color(red:0.729,green: 0.0,blue: 0.0))
+                                .fontWeight(.bold)
+                                .font(.custom("AmericanTypewriter", size: 34))
+                                .padding(.leading)
+                            Spacer()
+                            
+                        }
                     }
-                }
-                Spacer()
-                
-                VStack{
+                    HorizontalView()
                     VerticalView()
-                        
-                }.padding(.bottom)
+                }
                 
             }.ignoresSafeArea()
         }
@@ -76,36 +74,33 @@ struct HorizontalView: View{
 struct VerticalView: View{
     var body: some View{
         
-        ScrollView{
-            HorizontalView()
-            HStack{
-                Text("Categories")
-                    .foregroundColor(Color(red:0.729,green: 0.0,blue: 0.0))
-                    .fontWeight(.bold)
-                    .font(.custom("AmericanTypewriter", size: 34))
-                Spacer()
-            }.padding(.leading)
-            
-            VStack(spacing: 5) {
-                ForEach(0..<4) {
-                    j in ScrollView(.horizontal) {
-                        
-                        HStack(spacing: 5) {
-                            ForEach(0..<2) {
-                                i in VStack {
-                                    Text("Item \(i)")
-                                        .font(.largeTitle)
-                                        .frame(width: 200, height: 180)
-                                        .background(Color(red: 0.729, green: 0.0, blue: 0.0))
-                                        .foregroundColor(.white)
-                                }.cornerRadius(20)
-                            }
-                        }.padding(.leading,10)
-                    }
+        HStack{
+            Text("Categories")
+                .foregroundColor(Color(red:0.729,green: 0.0,blue: 0.0))
+                .fontWeight(.bold)
+                .font(.custom("AmericanTypewriter", size: 34))
+            Spacer()
+        }.padding(.leading)
+        
+        VStack(spacing: 5) {
+            ForEach(0..<4) {
+                j in ScrollView(.horizontal) {
+                    
+                    HStack(spacing: 5) {
+                        ForEach(0..<2) {
+                            i in VStack {
+                                Text("Item \(i)")
+                                    .font(.largeTitle)
+                                    .frame(width: 183, height: 180)
+                                    .background(Color(red: 0.729, green: 0.0, blue: 0.0))
+                                    .foregroundColor(.white)
+                            }.cornerRadius(20)
+                        }
+                    }.padding(.leading,10)
                 }
-            }.background(.white)
-                .opacity(0.9)
-        }.edgesIgnoringSafeArea(.all)
+            }
+        }.background(.white)
+            .opacity(0.9)
     }
 }
        

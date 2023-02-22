@@ -12,7 +12,7 @@ import SwiftUI
 struct TabSwiftUIView: View {
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(.black)
+        UITabBar.appearance().backgroundColor = UIColor(Color("Color"))
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color("UnselectedItem"))
     }
     
