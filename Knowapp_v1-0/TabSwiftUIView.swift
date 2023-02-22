@@ -19,7 +19,7 @@ struct TabSwiftUIView: View {
     var body: some View {
         TabView {
             VStack {
-                EmptyView()
+                CategoriesSwiftUIView()
             }
             .tabItem {
                 Label("Categories", systemImage: "book")

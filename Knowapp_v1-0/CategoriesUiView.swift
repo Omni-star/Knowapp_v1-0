@@ -36,7 +36,8 @@ struct CategoriesSwiftUIView: View {
                 
                 VStack{
                     VerticalView()
-                }
+                        
+                }.padding(.bottom)
                 
             }.ignoresSafeArea()
         }
