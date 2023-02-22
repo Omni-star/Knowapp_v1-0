@@ -26,10 +26,7 @@ struct Q_AView: View
                     }
                 } else {
                     ZStack{
-                        Image("Q_ABackground")
-                            .resizable()
-                            .ignoresSafeArea()
-                        Text("weeeeeeeeeeeeeeeee")
+                        AddQuestionsView()
                     }
                 }
                 Spacer()

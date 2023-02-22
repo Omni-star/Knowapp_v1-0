@@ -11,7 +11,7 @@ struct QuestionsView: View
 {
     
     @State var searchText: String
-    var films = ["Episodio1","Episodio2","Episodio"]
+    var films = ["Episodio2","Episodio"]
     
     var body: some View
     {
@@ -19,20 +19,22 @@ struct QuestionsView: View
             {
                     List
                 {
-                    ForEach(filtered, id:\.self)
-                    {
-                        film in ZStack{
+                        VStack
+                        {
                             NavigationLink (destination: EmptyView())
                             {
                                 EmptyView()
                             }.opacity(0)
-                            VStack
-                            {
-                                Text(film)
-                                Image("stanford").resizable().scaledToFit()
-                            }
+                            Text("Add yesterday")
+                                .position(x: 45, y: 0)
+                                .frame(height: CGFloat(10))
+                            Text("Come svuotare un array in C\\C++?")
+                                .frame(height: CGFloat(40))
+                            Text("In C o in C++?\nIn C \n probabilmente avrai scritto qualcosa di simile: \n int * p = malloc (10 * sizeof(int)); \n …")
                         }
-                    }
+                        .listRowBackground(RoundedRectangle(cornerRadius: 25)
+                            .fill(Color("BackgroundItem")))
+                        Spacer().listRowBackground(Color.clear)
                 }.background(Image("Q_ABackground"))
                     .scrollContentBackground(.hidden)
             }.searchable(text: $searchText)
