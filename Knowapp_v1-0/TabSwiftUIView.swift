@@ -29,7 +29,7 @@ struct TabSwiftUIView: View {
                 Label("Q&A", systemImage: "message.fill")
             }
             VStack {
-                EmptyView()
+                SearchSwiftUIView(searchText: "")
             }
             .tabItem {
                 Label("Search", systemImage: "magnifyingglass")
