@@ -34,7 +34,7 @@ struct QuestionsView: View
                             }
                         }
                     }.background(Image("Q_ABackground"))
-                    .scrollContentBackground(.hidden)
+                    .scrollContentBackground(.automatic)
             }.searchable(text: $searchText)
     }
 

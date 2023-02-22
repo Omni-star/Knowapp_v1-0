@@ -12,7 +12,7 @@ import SwiftUI
 struct TabSwiftUIView: View {
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color("Color"))
+        UITabBar.appearance().backgroundColor = UIColor(.black)
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color("UnselectedItem"))
     }
     
@@ -25,7 +25,7 @@ struct TabSwiftUIView: View {
                 Label("Categories", systemImage: "book")
             }
             VStack {
-                EmptyView()
+                Q_AView()
             }
             .tabItem {
                 Label("Q&A", systemImage: "message.fill")

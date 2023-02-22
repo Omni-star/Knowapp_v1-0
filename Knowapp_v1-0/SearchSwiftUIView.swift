@@ -9,33 +9,35 @@ struct Note : Identifiable{
     var id = UUID() //dal protocollo identifiable
     var name: String
     var image: String
+    var arrow: String
 }
 
 struct SearchSwiftUIView: View {
     @State
-    var notes = [Note(name: "GaussianTheoreme", image: "libri"),
-                 Note(name: "Klimt", image: "libri")]
+    var notes = [Note(name: "GaussianTheoreme", image: "", arrow: "arrow.counterclockwise"),
+                 Note(name: "Klimt", image: "", arrow: "arrow.counterclockwise"),
+                 Note(name: "aaaa", image: "", arrow: "arrow.counterclockwise")]
     @State var searchText: String
     var body: some View {
-        NavigationStack{
+        NavigationView{
             List{
                 ForEach(notes) { note in
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: NoteView(note: note)) {
                         RowView(note: note)
                     }
                 }
             }
-        }
+        }.searchable(text: $searchText)
     }
-}
+    }
 
 struct RowView: View{
     var note: Note
     var body: some View{
         HStack{
-            Image(note.image)
+            Image(systemName: note.arrow)
                 .resizable()
-                .frame(width: 60, height: 60)
+                .frame(width: 15, height: 15)
             Text(note.name)
         }
     }
@@ -60,26 +62,7 @@ struct RowView: View{
 }
 */
 
-/*
- NavigationStack { // prima si chiamava NavigationView
-     List {
-         ForEach(vehicles) { vehicle in NavigationLink(destination: VehicleView(vehicle: vehicle))
-             {
-                 RowView(vehicle: vehicle)
-             }
-         }.onDelete{(indexSet) in
-             self.vehicles.remove(atOffsets: indexSet)
-         }
-         .swipeActions(edge: .leading){
-             Button(action: {/*LOGIC*/}){
-                 Label("Tag",systemImage: "tag")
-             }.tint(Color(UIColor.systemYellow))
-         }
-     }
-     .navigationBarTitle("Trasports",displayMode: .inline)
-     
- }
- */
+
 struct SearchSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         SearchSwiftUIView(searchText: "")
